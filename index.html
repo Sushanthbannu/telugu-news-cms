@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>తెలుగు వార్తలు - Telugu News Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Breaking News Ticker -->
+    <div class="breaking-news-ticker">
+        <div class="ticker-content">
+            <span class="ticker-label">బ్రేకింగ్ న్యూస్:</span>
+            <div class="ticker-text" id="tickerText"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <h1>తెలుగు వార్తలు</h1>
+                    <span class="tagline">Telugu News Portal</span>
+                </div>
+                <div class="header-actions">
+                    <div class="language-toggle">
+                        <button class="lang-btn active" data-lang="te">తెలుగు</button>
+                        <button class="lang-btn" data-lang="en">English</button>
+                    </div>
+                    <div class="theme-toggle">
+                        <button class="theme-btn" id="themeToggle">🌙</button>
+                    </div>
+                    <div class="search-box">
+                        <input type="text" placeholder="వార్తలు వెతకండి..." id="searchInput">
+                        <button class="search-btn" id="searchBtn">🔍</button>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#" target="_blank">📘</a>
+                        <a href="#" target="_blank">🐦</a>
+                        <a href="#" target="_blank">📱</a>
+                        <a href="#" target="_blank">📺</a>
+                        <a href="#" target="_blank">📷</a>
+                    </div>
+                </div>
+            </div>
+            
+            <nav class="main-nav">
+                <div class="nav-container">
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="#home" class="nav-link active">హోమ్</a></li>
+                        <li><a href="#telangana" class="nav-link">తెలంగాణ</a></li>
+                        <li><a href="#ap" class="nav-link">ఆంధ్రప్రదేశ్</a></li>
+                        <li><a href="#national" class="nav-link">జాతీయం</a></li>
+                        <li><a href="#international" class="nav-link">అంతర్జాతీయం</a></li>
+                        <li><a href="#sports" class="nav-link">క్రీడలు</a></li>
+                        <li><a href="#entertainment" class="nav-link">వినోదం</a></li>
+                        <li><a href="#business" class="nav-link">వ్యాపారం</a></li>
+                        <li><a href="#tech" class="nav-link">టెక్నాలజీ</a></li>
+                        <li><a href="#health" class="nav-link">ఆరోగ్యం</a></li>
+                    </ul>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+                </div>
+            </nav>
+
+            <div class="district-nav">
+                <div class="district-scroll">
+                    <button class="district-btn">హైదరాబాద్</button>
+                    <button class="district-btn">వరంగల్</button>
+                    <button class="district-btn">నిజామాబాద్</button>
+                    <button class="district-btn">కరీంనగర్</button>
+                    <button class="district-btn">ఖమ్మం</button>
+                    <button class="district-btn">నల్గొండ</button>
+                    <button class="district-btn">మహబూబ్‌నగర్</button>
+                    <button class="district-btn">ఆదిలాబాద్</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Homepage -->
+            <div id="homepage" class="page active">
+                <div class="content-grid">
+                    <div class="main-content-area">
+                        <!-- Hero Section -->
+                        <section class="hero-section">
+                            <div class="featured-news">
+                                <div class="featured-image">
+                                    <div class="news-placeholder">📰</div>
+                                </div>
+                                <div class="featured-content">
+                                    <span class="category-tag">టెక్నాలజీ</span>
+                                    <h2 class="featured-headline">తెలంగాణలో కొత్త IT పాలసీ ప్రకటన</h2>
+                                    <p class="featured-summary">రాష్ట్ర ప్రభుత్వం కొత్త IT పాలసీని ప్రకటించింది. దీనితో వేలాది ఉద్యోగాలు వస్తాయని అంచనా.</p>
+                                    <div class="news-meta">
+                                        <span class="author">వార్తా విభాగం</span>
+                                        <span class="location">హైదరాబాద్</span>
+                                        <span class="time">2 గంటల క్రితం</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Latest News Grid -->
+                        <section class="latest-news">
+                            <h3 class="section-title">తాజా వార్తలు</h3>
+                            <div class="news-grid" id="newsGrid">
+                                <!-- News items will be populated by JavaScript -->
+                            </div>
+                        </section>
+
+                        <!-- Categories Section -->
+                        <section class="categories-section">
+                            <h3 class="section-title">వార్తా విభాగాలు</h3>
+                            <div class="categories-grid">
+                                <div class="category-card" data-category="sports">
+                                    <div class="category-icon">🏏</div>
+                                    <h4>క్రీడలు</h4>
+                                    <p>క్రికెట్, ఫుట్‌బాల్ మరియు ఇతర క్రీడల వార్తలు</p>
+                                </div>
+                                <div class="category-card" data-category="entertainment">
+                                    <div class="category-icon">🎬</div>
+                                    <h4>వినోదం</h4>
+                                    <p>సినిమా, సెలబ్రిటీ వార్తలు</p>
+                                </div>
+                                <div class="category-card" data-category="business">
+                                    <div class="category-icon">💼</div>
+                                    <h4>వ్యాపారం</h4>
+                                    <p>వ్యాపార మరియు ఆర్థిక వార్తలు</p>
+                                </div>
+                                <div class="category-card" data-category="tech">
+                                    <div class="category-icon">💻</div>
+                                    <h4>టెక్నాలజీ</h4>
+                                    <p>టెక్ న్యూస్ మరియు గ్యాడ్జెట్ రివ్యూలు</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Photo Gallery -->
+                        <section class="photo-gallery">
+                            <h3 class="section-title">ఫోటో గ్యాలరీ</h3>
+                            <div class="gallery-grid">
+                                <div class="gallery-item">
+                                    <div class="gallery-placeholder">📸</div>
+                                    <p>హైదరాబాద్ నగర దృశ్యాలు</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <div class="gallery-placeholder">📸</div>
+                                    <p>రామోజీ ఫిల్మ్ సిటీ</p>
+                                </div>
+                                <div class="gallery-item">
+                                    <div class="gallery-placeholder">📸</div>
+                                    <p>గోల్కొండ కోట</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <aside class="sidebar">
+                        <!-- Weather Widget -->
+                        <div class="widget weather-widget">
+                            <h4>వాతావరణం</h4>
+                            <div class="weather-info">
+                                <div class="weather-location">హైదరాబాద్</div>
+                                <div class="weather-temp">28°C</div>
+                                <div class="weather-condition">పాక్షిక మేఘావృతం</div>
+                                <div class="weather-humidity">తేమ: 65%</div>
+                            </div>
+                        </div>
+
+                        <!-- Most Read -->
+                        <div class="widget most-read-widget">
+                            <h4>అత్యధికంగా చదవబడిన వార్తలు</h4>
+                            <div class="most-read-list">
+                                <div class="most-read-item">
+                                    <span class="rank">1</span>
+                                    <div class="content">
+                                        <h5>IPL 2025: హైదరాబాద్ జట్టు గెలుపు</h5>
+                                        <span class="time">4 గంటల క్రితం</span>
+                                    </div>
+                                </div>
+                                <div class="most-read-item">
+                                    <span class="rank">2</span>
+                                    <div class="content">
+                                        <h5>వరంగల్‌లో కొత్త మెట్రో ప్రాజెక్ట్</h5>
+                                        <span class="time">6 గంటల క్రితం</span>
+                                    </div>
+                                </div>
+                                <div class="most-read-item">
+                                    <span class="rank">3</span>
+                                    <div class="content">
+                                        <h5>తెలంగాణలో కొత్త IT పాలసీ</h5>
+                                        <span class="time">8 గంటల క్రితం</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Advertisement -->
+                        <div class="widget ad-widget">
+                            <div class="ad-placeholder">
+                                <p>Advertisement</p>
+                            </div>
+                        </div>
+
+                        <!-- Live Updates -->
+                        <div class="widget live-updates-widget">
+                            <h4>లైవ్ అప్‌డేట్స్</h4>
+                            <div class="live-updates">
+                                <div class="live-update">
+                                    <span class="live-time">8:45 PM</span>
+                                    <p>ప్రధానమంత్రి రేపు హైదరాబాద్ సందర్శన</p>
+                                </div>
+                                <div class="live-update">
+                                    <span class="live-time">8:30 PM</span>
+                                    <p>హైదరాబాద్‌లో భారీ వర్షాలు</p>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+
+            <!-- Article Page -->
+            <div id="articlePage" class="page hidden">
+                <article class="article-content">
+                    <div class="article-header">
+                        <span class="article-category" id="articleCategory">టెక్నాలజీ</span>
+                        <h1 class="article-headline" id="articleHeadline">తెలంగాణలో కొత్త IT పాలసీ ప్రకటన</h1>
+                        <div class="article-meta">
+                            <span class="article-author" id="articleAuthor">వార్తా విభాగం</span>
+                            <span class="article-location" id="articleLocation">హైదరాబాద్</span>
+                            <span class="article-time" id="articleTime">2025-08-02, 2:30 PM</span>
+                            <span class="reading-time">చదవడానికి 3 నిమిషాలు</span>
+                        </div>
+                        <div class="article-actions">
+                            <div class="font-controls">
+                                <button class="font-btn" data-action="decrease">A-</button>
+                                <button class="font-btn" data-action="increase">A+</button>
+                            </div>
+                            <div class="share-buttons">
+                                <button class="share-btn" data-platform="facebook">📘</button>
+                                <button class="share-btn" data-platform="twitter">🐦</button>
+                                <button class="share-btn" data-platform="whatsapp">📱</button>
+                                <button class="share-btn" data-platform="linkedin">💼</button>
+                                <button class="share-btn" data-platform="email">✉️</button>
+                                <button class="share-btn" data-platform="print">🖨️</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="article-image">
+                        <div class="article-placeholder">📰</div>
+                        <p class="image-caption">తెలంగాణ రాష్ట్ర ప్రభుత్వం కొత్త IT పాలసీని ప్రకటించింది</p>
+                    </div>
+
+                    <div class="article-body" id="articleBody">
+                        <p>హైదరాబాద్: తెలంగాణ రాష్ట్ర ప్రభుత్వం కొత్త IT పాలసీని ప్రకటించింది. ఈ పాలసీ ద్వారా రాష్ట్రంలో వేలాది ఉద్యోగాలు వస్తాయని ప్రభుత్వం అంచనా వేస్తోంది.</p>
+                        
+                        <p>ముఖ్యమంత్రి తెలిపిన వివరాల ప్రకారం, కొత్త IT పాలసీలో స్టార్టప్‌లకు ప్రత్యేక ప్రోత్సాహకాలు ఉంటాయి. టెక్నాలజీ రంగంలో వచ్చే కంపెనీలకు 10-15 సంవత్సరాలు పన్ను మినహాయింపు ఉంటుంది.</p>
+                        
+                        <p>హైదరాబాద్‌తో పాటు వరంగల్, విజయవాడ, విశాఖపట్నంలో కూడా కొత్త IT హబ్‌లు ఏర్పాటు చేయాలని ప్రభుత్వం యోచిస్తోంది. దీనితో గ్రామీణ ప్రాంతాల్లో కూడా IT ఉద్యోగాలు వస్తాయని అధికారులు తెలిపారు.</p>
+                        
+                        <p>ఈ పాలసీ వల్ల రాష్ట్రంలో 2 లక్షల మంది యువతకు ప్రత్యక్షంగా మరియు 5 లక్షల మందికి పరోక్షంగా ఉద్యోగావకాశాలు లభిస్తాయని ప్రభుత్వం అంచనా వేస్తోంది.</p>
+                    </div>
+
+                    <div class="article-tags">
+                        <span class="tag">IT పాలసీ</span>
+                        <span class="tag">తెలంగాణ</span>
+                        <span class="tag">ఉద్యోగాలు</span>
+                        <span class="tag">హైదరాబాద్</span>
+                    </div>
+
+                    <div class="related-articles">
+                        <h3>సంబంధిత వార్తలు</h3>
+                        <div class="related-grid">
+                            <div class="related-item">
+                                <div class="related-image">📰</div>
+                                <h4>హైదరాబాద్‌లో కొత్త టెక్ పార్క్</h4>
+                                <span class="related-time">1 గంట క్రితం</span>
+                            </div>
+                            <div class="related-item">
+                                <div class="related-image">📰</div>
+                                <h4>IT రంగంలో మహిళలకు ప్రత్యేక అవకాశాలు</h4>
+                                <span class="related-time">3 గంటల క్రితం</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="comments-section">
+                        <h3>అభిప్రాయాలు (24)</h3>
+                        <div class="comment-form">
+                            <textarea placeholder="మీ అభిప్రాయం రాయండి..." id="commentInput"></textarea>
+                            <button class="btn btn--primary" id="submitComment">పోస్ట్ చేయండి</button>
+                        </div>
+                        <div class="comments-list" id="commentsList">
+                            <div class="comment">
+                                <div class="comment-author">రాజేష్ కుమార్</div>
+                                <div class="comment-time">30 నిమిషాల క్రితం</div>
+                                <div class="comment-text">చాలా మంచి ప్రకటన. ఇది యువతకు ఉపయోగపడుతుంది.</div>
+                            </div>
+                            <div class="comment">
+                                <div class="comment-author">ప్రియా రెడ్డి</div>
+                                <div class="comment-time">1 గంట క్రితం</div>
+                                <div class="comment-text">గ్రామీణ ప్రాంతాల్లో కూడా IT ఉద్యోగాలు వస్తే చాలా బాగుంటుంది.</div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>మా గురించి</h4>
+                    <ul>
+                        <li><a href="#">మా గురించి</a></li>
+                        <li><a href="#">సంప్రదింపు</a></li>
+                        <li><a href="#">కెరీర్లు</a></li>
+                        <li><a href="#">గోప్యతా విధానం</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>వార్తా విభాగాలు</h4>
+                    <ul>
+                        <li><a href="#">తెలంగాణ</a></li>
+                        <li><a href="#">ఆంధ్రప్రదేశ్</a></li>
+                        <li><a href="#">క్రీడలు</a></li>
+                        <li><a href="#">వినోదం</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>ఉపయోగకరమైన లింక్‌లు</h4>
+                    <ul>
+                        <li><a href="#">ఇ-పేపర్</a></li>
+                        <li><a href="#">RSS ఫీడ్స్</a></li>
+                        <li><a href="#">మొబైల్ యాప్</a></li>
+                        <li><a href="#">ఆర్కైవ్</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>ఇతరాలు</h4>
+                    <ul>
+                        <li><a href="#">ఫోటో గ్యాలరీ</a></li>
+                        <li><a href="#">వీడియో న్యూస్</a></li>
+                        <li><a href="#">హోరోస్కోప్</a></li>
+                        <li><a href="#">వాతావరణం</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 తెలుగు వార్తలు. అన్ని హక్కులు రక్షించబడినవి.</p>
+                <div class="social-links">
+                    <a href="#" target="_blank">📘</a>
+                    <a href="#" target="_blank">🐦</a>
+                    <a href="#" target="_blank">📱</a>
+                    <a href="#" target="_blank">📺</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Newsletter Popup -->
+    <div class="newsletter-popup hidden" id="newsletterPopup">
+        <div class="popup-content">
+            <button class="popup-close" id="closePopup">×</button>
+            <h3>వార్తలు మీ ఇన్‌బాక్స్‌లో</h3>
+            <p>రోజువారీ ముఖ్య వార్తలు పొందండి</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="మీ ఇమెయిల్ చిరునామా">
+                <button class="btn btn--primary">సబ్‌స్క్రైబ్ చేయండి</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
